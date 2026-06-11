@@ -1,0 +1,32 @@
+# PSUM-SysMLv2 Constraints
+
+This file contains the complete OCL constraints for PSUM-SysMLv2.
+
+| ID | Description | OCL constraint |
+| --- | --- | --- |
+| C1 | An indeterminacy specification must be included in the content of exactly one indeterminacy source. | <code>context IndeterminacySpecification<br>IndeterminacySource.allInstances()->one(source \| source.content->includes(self))</code> |
+| C2 | The SysMLv2 element to which an indeterminacy specification is applied shall be contained in a namespace hierarchy in which at least one namespace has extension construct `IndeterminacySource` applied. | <code>context IndeterminacySpecification<br>self.appliedElement().owningNamespace->asSet()->closure(ns \| ns.owningNamespace)->exists(ns \|<br>  ns.getAppliedConcept('PSUM-SysMLv2::IndeterminacySource') &lt;&gt; null)</code> |
+| C3 | The uncertainties contained in a belief statement are derived through its uncertainty topics (from PSUM). | <code>context BeliefStatement::containedUncertainty : Set(Uncertainty) derivedSet:<br>self.uncertaintyTopic.associatedUncertainty->asSet()</code> |
+| C4 | Each uncertainty topic associated with a belief statement must reference that belief statement. | <code>context BeliefStatement<br>self.uncertaintyTopic->forAll(topic \|<br>  topic.beliefStatement->includes(self))</code> |
+| C5 | Aleatory uncertainty is irreducible (from PSUM). | <code>context Uncertainty<br>self.nature = UncertaintyNature::Aleatory implies<br>  self.reducibility = ReducibilityLevel::Irreducible</code> |
+| C6 | Epistemic uncertainty is reducible (from PSUM). | <code>context Uncertainty<br>self.nature = UncertaintyNature::Epistemic implies<br>  self.reducibility = ReducibilityLevel::PartiallyReducible or<br>  self.reducibility = ReducibilityLevel::FullyReducible</code> |
+| C7 | Only occurrence uncertainty can have a pattern (from PSUM). | <code>context Uncertainty<br>self.kind &lt;&gt; UncertaintyKind::OccurrenceUncertainty implies<br>  self.uncertaintyCharacteristic->select(c \| c.oclIsKindOf(Pattern))->isEmpty()</code> |
+| C8 | The indeterminacy specifications triggering an uncertainty shall be included in the content of the uncertainty's sources. | <code>context Uncertainty<br>self.indeterminacySpecifications->forAll(specification \|<br>  self.sources.content->includes(specification))</code> |
+| C9 | The SysMLv2 element to which an uncertainty is applied shall either have extension construct `BeliefStatement` applied or be contained in a namespace hierarchy in which at least one namespace has extension construct `BeliefStatement` applied. | <code>context Uncertainty<br>Set{self.appliedElement()}->union(<br>  self.appliedElement().owningNamespace->asSet()->closure(ns \| ns.owningNamespace))->exists(element \|<br>  element.getAppliedConcept('PSUM-SysMLv2::BeliefStatement') &lt;&gt; null)</code> |
+| C10 | The uncertainty topic associated with an uncertainty must include that uncertainty in its associated uncertainties. | <code>context Uncertainty<br>self.uncertaintyTopic.associatedUncertainty->includes(self)</code> |
+| C11 | The belief statements associated with an uncertainty must be consistent with the belief statements of its uncertainty topic. | <code>context Uncertainty<br>self.beliefStatement->forAll(statement \|<br>  self.uncertaintyTopic.beliefStatement->includes(statement))</code> |
+| C12 | Each uncertainty associated with an uncertainty topic must reference that topic as its uncertainty topic. | <code>context UncertaintyTopic<br>self.associatedUncertainty->forAll(uncertainty \|<br>  uncertainty.uncertaintyTopic = self)</code> |
+| C13 | An uncertainty perspective must be included in the `uncertaintyCharacteristic` property of an uncertainty. | <code>context UncertaintyPerspective<br>Uncertainty.allInstances()->one(uncertainty \|<br>  uncertainty.uncertaintyCharacteristic->includes(self))</code> |
+| C14 | The SysMLv2 element to which an uncertainty perspective is applied must also have extension construct `Uncertainty` or `Effect` applied. | <code>context UncertaintyPerspective<br>self.appliedElement().getAppliedConcept('PSUM-SysMLv2::Uncertainty') &lt;&gt; null or<br>self.appliedElement().getAppliedConcept('PSUM-SysMLv2::Effect') &lt;&gt; null</code> |
+| C15 | A pattern must be included in the `uncertaintyCharacteristic` property of an uncertainty. | <code>context Pattern<br>Uncertainty.allInstances()->one(uncertainty \|<br>  uncertainty.uncertaintyCharacteristic->includes(self))</code> |
+| C16 | The SysMLv2 element to which a pattern is applied must also have extension construct `Uncertainty` or `Effect` applied. | <code>context Pattern<br>self.appliedElement().getAppliedConcept('PSUM-SysMLv2::Uncertainty') &lt;&gt; null or<br>self.appliedElement().getAppliedConcept('PSUM-SysMLv2::Effect') &lt;&gt; null</code> |
+| C17 | An effect must be included in the `uncertaintyCharacteristic` property of its origin uncertainty. | <code>context Effect<br>self.origin.uncertaintyCharacteristic->includes(self)</code> |
+| C18 | A measurable feature must be included within a measurable element. | <code>context MeasurableFeature<br>MeasurableElement.allInstances()->one(element \|<br>  element.measurableFeature->includes(self))</code> |
+| C19 | The SysMLv2 element to which a measurable feature is applied must also have extension construct `BeliefStatement`, `IndeterminacySource`, `Uncertainty`, or `Effect` applied. | <code>context MeasurableFeature<br>self.appliedElement().getAppliedConcept('PSUM-SysMLv2::BeliefStatement') &lt;&gt; null or<br>self.appliedElement().getAppliedConcept('PSUM-SysMLv2::IndeterminacySource') &lt;&gt; null or<br>self.appliedElement().getAppliedConcept('PSUM-SysMLv2::Uncertainty') &lt;&gt; null or<br>self.appliedElement().getAppliedConcept('PSUM-SysMLv2::Effect') &lt;&gt; null</code> |
+| C20 | A measurable feature must be contained in the measurable element it measures. | <code>context MeasurableFeature<br>self.measurableElement.measurableFeature->includes(self)</code> |
+| C21 | Each measurable feature of a measurable element must reference that measurable element. | <code>context MeasurableElement<br>self.measurableFeature->forAll(feature \|<br>  feature.measurableElement = self)</code> |
+
+Notes:
+
+- `appliedElement()` is a custom OCL operation that returns the SysMLv2 element to which the extension construct is applied.
+- `getAppliedConcept()` is a custom OCL operation that returns the extension construct with the specified qualified name applied to a SysMLv2 element.

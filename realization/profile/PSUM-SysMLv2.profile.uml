@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_jsGogBF4EfGyLqaRZ_jfrQ" name="PSUM-SysMLv2">
+  <packageImport xmi:id="_y_tVcBF4EfGyLqaRZ_jfrQ">
+    <importedPackage xmi:type="uml:Model" href="KerML_only_xmi.uml#_amtf0NOeEe-aLcdc5tialg"/>
+  </packageImport>
+  <packageImport xmi:id="_y_t8gBF4EfGyLqaRZ_jfrQ">
+    <importedPackage xmi:type="uml:Model" href="SysML_only_xmi.uml#_amvVANOeEe-aLcdc5tialg"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Model" xmi:id="_bSxwoBF5EfGyLqaRZ_jfrQ" name="PSUM-SysMLv2">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_PSUM_String" name="String"/>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_PSUM_Iso8601DateTime" name="Iso8601DateTime"/>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_PSUM_DurationValue" name="DurationValue"/>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_IndeterminacyNature" name="IndeterminacyNature">
+      <ownedLiteral xmi:id="_IndeterminacyNature_InsufficientResolution" name="InsufficientResolution"/>
+      <ownedLiteral xmi:id="_IndeterminacyNature_MissingInfo" name="MissingInfo"/>
+      <ownedLiteral xmi:id="_IndeterminacyNature_NonDeterminism" name="NonDeterminism"/>
+      <ownedLiteral xmi:id="_IndeterminacyNature_Unclassified" name="Unclassified"/>
+      <ownedLiteral xmi:id="_IndeterminacyNature_Custom" name="Custom"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_EvidenceType" name="EvidenceType">
+      <ownedLiteral xmi:id="_EvidenceType_EmpiricalEvidence" name="EmpiricalEvidence"/>
+      <ownedLiteral xmi:id="_EvidenceType_TheoremProvingResults" name="TheoremProvingResults"/>
+      <ownedLiteral xmi:id="_EvidenceType_InferenceBasedOnEmpiricalData" name="InferenceBasedOnEmpiricalData"/>
+      <ownedLiteral xmi:id="_EvidenceType_CommonKnowledge" name="CommonKnowledge"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_UncertaintyKind" name="UncertaintyKind">
+      <ownedLiteral xmi:id="_UncertaintyKind_OccurrenceUncertainty" name="OccurrenceUncertainty"/>
+      <ownedLiteral xmi:id="_UncertaintyKind_ContentUncertainty" name="ContentUncertainty"/>
+      <ownedLiteral xmi:id="_UncertaintyKind_TimeUncertainty" name="TimeUncertainty"/>
+      <ownedLiteral xmi:id="_UncertaintyKind_LocationUncertainty" name="LocationUncertainty"/>
+      <ownedLiteral xmi:id="_UncertaintyKind_EnvironmentUncertainty" name="EnvironmentUncertainty"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_UncertaintyNature" name="UncertaintyNature">
+      <ownedLiteral xmi:id="_UncertaintyNature_Aleatory" name="Aleatory"/>
+      <ownedLiteral xmi:id="_UncertaintyNature_Epistemic" name="Epistemic"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_ReducibilityLevel" name="ReducibilityLevel">
+      <ownedLiteral xmi:id="_ReducibilityLevel_FullyReducible" name="FullyReducible"/>
+      <ownedLiteral xmi:id="_ReducibilityLevel_PartiallyReducible" name="PartiallyReducible"/>
+      <ownedLiteral xmi:id="_ReducibilityLevel_Irreducible" name="Irreducible"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_UncertaintyPerspectiveType" name="UncertaintyPerspectiveType">
+      <ownedLiteral xmi:id="_UncertaintyPerspectiveType_Subjective" name="Subjective"/>
+      <ownedLiteral xmi:id="_UncertaintyPerspectiveType_Objective" name="Objective"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_PatternType" name="PatternType">
+      <ownedLiteral xmi:id="_PatternType_Periodic" name="Periodic"/>
+      <ownedLiteral xmi:id="_PatternType_Persistent" name="Persistent"/>
+      <ownedLiteral xmi:id="_PatternType_Sporadic" name="Sporadic"/>
+      <ownedLiteral xmi:id="_PatternType_Transient" name="Transient"/>
+      <ownedLiteral xmi:id="_PatternType_Random" name="Random"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_PSUMElement" name="PSUMElement" isAbstract="true">
+      <ownedAttribute xmi:id="_PSUMElement_id" name="id" visibility="public" type="_PSUM_String">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSUMElement_id_lower" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSUMElement_id_upper" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_PSUMElement_description" name="description" visibility="public" type="_PSUM_String">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSUMElement_description_lower" value="0"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSUMElement_description_upper" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_PSUMElement_timeStamp" name="timeStamp" visibility="public" type="_PSUM_Iso8601DateTime">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSUMElement_timeStamp_lower" value="0"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSUMElement_timeStamp_upper" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_PSUMElement_base_Element" name="base_Element" association="_E_PSUMElement_Element">
+        <type xmi:type="uml:Class" href="KerML_only_xmi.uml#4b78ff27-ee29-4275-961c-00731b7ed9bb"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSUMElement_base_Element_lower"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_Basis" name="Basis" isAbstract="true">
+      <generalization xmi:id="_Basis_general_PSUMElement" general="_PSUMElement"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_MeasurableElement" name="MeasurableElement" isAbstract="true">
+      <generalization xmi:id="_MeasurableElement_general_PSUMElement" general="_PSUMElement"/>
+      <ownedAttribute xmi:id="_MeasurableElement_measurableFeature" name="measurableFeature" visibility="public" type="_MeasurableFeature" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MeasurableElement_measurableFeature_lower" value="0"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MeasurableElement_measurableFeature_upper" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_MeasurableFeature" name="MeasurableFeature" isAbstract="true">
+      <generalization xmi:id="_MeasurableFeature_general_MeasurableElement" general="_MeasurableElement"/>
+      <ownedAttribute xmi:id="_MeasurableFeature_measurableElement" name="measurableElement" visibility="public" type="_MeasurableElement">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MeasurableFeature_measurableElement_lower" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MeasurableFeature_measurableElement_upper" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_MeasurableFeature_measurement" name="measurement" visibility="public">
+        <type xmi:type="uml:Class" href="KerML_only_xmi.uml#e8904b17-7bf3-47eb-b907-a6efe22c56b7"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MeasurableFeature_measurement_lower" value="0"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MeasurableFeature_measurement_upper" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_UncertaintyCharacteristic" name="UncertaintyCharacteristic" isAbstract="true">
+      <generalization xmi:id="_UncertaintyCharacteristic_general_PSUMElement" general="_PSUMElement"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_E_PSUMElement_Element" name="E_PSUMElement_Element" memberEnd="_extension_PSUMElement_Element _PSUMElement_base_Element">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_extension_PSUMElement_Element" name="extension_PSUMElement" type="_PSUMElement" aggregation="composite" association="_E_PSUMElement_Element"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_BI9SoBF6EfGyLqaRZ_jfrQ" name="Belief">
+      <packagedElement xmi:type="uml:Stereotype" xmi:id="_xWF20BF5EfGyLqaRZ_jfrQ" name="BeliefStatement">
+        <generalization xmi:id="_BeliefStatement_general_MeasurableElement" general="_MeasurableElement"/>
+        <ownedAttribute xmi:id="_BeliefStatement_duration" name="duration" visibility="public" type="_PSUM_DurationValue">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BeliefStatement_duration_lower" value="0"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BeliefStatement_duration_upper" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_BeliefStatement_basis" name="basis" visibility="public" type="_Basis">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BeliefStatement_basis_lower" value="0"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BeliefStatement_basis_upper" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_BeliefStatement_uncertaintyTopic" name="uncertaintyTopic" visibility="public" type="_KBCGkBF6EfGyLqaRZ_jfrQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BeliefStatement_uncertaintyTopic_lower" value="0"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BeliefStatement_uncertaintyTopic_upper" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_BeliefStatement_containedUncertainty" name="containedUncertainty" visibility="public" type="_33EQgBF5EfGyLqaRZ_jfrQ" isDerived="true">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BeliefStatement_containedUncertainty_lower" value="0"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BeliefStatement_containedUncertainty_upper" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_2EFlERF7EfGyLqaRZ_jfrQ" name="base_Element" association="_2EE-ABF7EfGyLqaRZ_jfrQ">
+          <type xmi:type="uml:Class" href="KerML_only_xmi.uml#4b78ff27-ee29-4275-961c-00731b7ed9bb"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2EFlEhF7EfGyLqaRZ_jfrQ"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Stereotype" xmi:id="_EvidenceStereo" name="Evidence">
+        <generalization xmi:id="_Evidence_general_Basis" general="_Basis"/>
+        <ownedAttribute xmi:id="_Evidence_type" name="type" visibility="public" type="_EvidenceType">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Evidence_type_lower" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Evidence_type_upper" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Evidence_base_Element" name="base_Element" association="_E_Evidence_Element">
+          <type xmi:type="uml:Class" href="KerML_only_xmi.uml#4b78ff27-ee29-4275-961c-00731b7ed9bb"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Evidence_base_Element_lower"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Stereotype" xmi:id="_PersonalExperienceStereo" name="PersonalExperience">
+        <generalization xmi:id="_PersonalExperience_general_Basis" general="_Basis"/>
+        <ownedAttribute xmi:id="_PersonalExperience_base_Element" name="base_Element" association="_E_PersonalExperience_Element">
+          <type xmi:type="uml:Class" href="KerML_only_xmi.uml#4b78ff27-ee29-4275-961c-00731b7ed9bb"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PersonalExperience_base_Element_lower"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Stereotype" xmi:id="_yZJPQBF5EfGyLqaRZ_jfrQ" name="IndeterminacySource">
+        <generalization xmi:id="_IndeterminacySource_general_MeasurableElement" general="_MeasurableElement"/>
+        <ownedAttribute xmi:id="_IndeterminacySource_nature" name="nature" visibility="public" type="_IndeterminacyNature">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IndeterminacySource_nature_lower" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IndeterminacySource_nature_upper" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_tt7LYRF7EfGyLqaRZ_jfrQ" name="base_OccurrenceUsage" association="_tt5WMBF7EfGyLqaRZ_jfrQ">
+          <type xmi:type="uml:Class" href="SysML_only_xmi.uml#8750f181-cce3-4283-a48b-68d7977c6e0f"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tt7LYhF7EfGyLqaRZ_jfrQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_uKi18BF7EfGyLqaRZ_jfrQ" name="base_OccurrenceDefinition" association="_uKhAwBF7EfGyLqaRZ_jfrQ">
+          <type xmi:type="uml:Class" href="SysML_only_xmi.uml#1eff3723-2ccb-4d48-b4cf-7a53e76a2d83"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uKi18RF7EfGyLqaRZ_jfrQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_unHdMBF7EfGyLqaRZ_jfrQ" name="base_AttributeUsage" association="_unFA8BF7EfGyLqaRZ_jfrQ">
+          <type xmi:type="uml:Class" href="SysML_only_xmi.uml#7b40d655-b90b-43af-aa30-8bc92e8edbca"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_unHdMRF7EfGyLqaRZ_jfrQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_vBPNYRF7EfGyLqaRZ_jfrQ" name="base_AttributeDefinition" association="_vBNYMBF7EfGyLqaRZ_jfrQ">
+          <type xmi:type="uml:Class" href="SysML_only_xmi.uml#83320114-7a5d-44a4-955f-a569acff6af6"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vBPNYhF7EfGyLqaRZ_jfrQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_-2jY4BF-EfGyLqaRZ_jfrQ" name="content" visibility="public" type="_04HMEBF5EfGyLqaRZ_jfrQ" aggregation="composite">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CtSZ4BF_EfGyLqaRZ_jfrQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CtZuoBF_EfGyLqaRZ_jfrQ" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Stereotype" xmi:id="_04HMEBF5EfGyLqaRZ_jfrQ" name="IndeterminacySpecification">
+        <generalization xmi:id="_IndeterminacySpecification_general_BeliefStatement" general="_xWF20BF5EfGyLqaRZ_jfrQ"/>
+        <ownedAttribute xmi:id="_z2oPABF7EfGyLqaRZ_jfrQ" name="base_ConstraintUsage" association="_z2mZ0BF7EfGyLqaRZ_jfrQ">
+          <type xmi:type="uml:Class" href="SysML_only_xmi.uml#f1bbc902-b569-4c28-88f5-6f3a15f3d747"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z2oPARF7EfGyLqaRZ_jfrQ"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_tt5WMBF7EfGyLqaRZ_jfrQ" name="E_IndeterminacySource_OccurrenceUsage4" memberEnd="_tt7LYBF7EfGyLqaRZ_jfrQ _tt7LYRF7EfGyLqaRZ_jfrQ">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_tt7LYBF7EfGyLqaRZ_jfrQ" name="extension_IndeterminacySource" type="_yZJPQBF5EfGyLqaRZ_jfrQ" aggregation="composite" association="_tt5WMBF7EfGyLqaRZ_jfrQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_uKhAwBF7EfGyLqaRZ_jfrQ" name="E_IndeterminacySource_OccurrenceDefinition5" memberEnd="_uKiO4BF7EfGyLqaRZ_jfrQ _uKi18BF7EfGyLqaRZ_jfrQ">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_uKiO4BF7EfGyLqaRZ_jfrQ" name="extension_IndeterminacySource" type="_yZJPQBF5EfGyLqaRZ_jfrQ" aggregation="composite" association="_uKhAwBF7EfGyLqaRZ_jfrQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_unFA8BF7EfGyLqaRZ_jfrQ" name="E_IndeterminacySource_AttributeUsage6" memberEnd="_unG2IBF7EfGyLqaRZ_jfrQ _unHdMBF7EfGyLqaRZ_jfrQ">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_unG2IBF7EfGyLqaRZ_jfrQ" name="extension_IndeterminacySource" type="_yZJPQBF5EfGyLqaRZ_jfrQ" aggregation="composite" association="_unFA8BF7EfGyLqaRZ_jfrQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_vBNYMBF7EfGyLqaRZ_jfrQ" name="E_IndeterminacySource_AttributeDefinition7" memberEnd="_vBPNYBF7EfGyLqaRZ_jfrQ _vBPNYRF7EfGyLqaRZ_jfrQ">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_vBPNYBF7EfGyLqaRZ_jfrQ" name="extension_IndeterminacySource" type="_yZJPQBF5EfGyLqaRZ_jfrQ" aggregation="composite" association="_vBNYMBF7EfGyLqaRZ_jfrQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_z2mZ0BF7EfGyLqaRZ_jfrQ" name="E_IndeterminacySpecification_ConstraintUsage8" memberEnd="_z2nn8BF7EfGyLqaRZ_jfrQ _z2oPABF7EfGyLqaRZ_jfrQ">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_z2nn8BF7EfGyLqaRZ_jfrQ" name="extension_IndeterminacySpecification" type="_04HMEBF5EfGyLqaRZ_jfrQ" aggregation="composite" association="_z2mZ0BF7EfGyLqaRZ_jfrQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_2EE-ABF7EfGyLqaRZ_jfrQ" name="E_BeliefStatement_Element9" memberEnd="_2EFlEBF7EfGyLqaRZ_jfrQ _2EFlERF7EfGyLqaRZ_jfrQ">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_2EFlEBF7EfGyLqaRZ_jfrQ" name="extension_BeliefStatement" type="_xWF20BF5EfGyLqaRZ_jfrQ" aggregation="composite" association="_2EE-ABF7EfGyLqaRZ_jfrQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_E_Evidence_Element" name="E_Evidence_Element" memberEnd="_extension_Evidence_Element _Evidence_base_Element">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_extension_Evidence_Element" name="extension_Evidence" type="_EvidenceStereo" aggregation="composite" association="_E_Evidence_Element"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_E_PersonalExperience_Element" name="E_PersonalExperience_Element" memberEnd="_extension_PersonalExperience_Element _PersonalExperience_base_Element">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_extension_PersonalExperience_Element" name="extension_PersonalExperience" type="_PersonalExperienceStereo" aggregation="composite" association="_E_PersonalExperience_Element"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_EDSVwBF6EfGyLqaRZ_jfrQ" name="Uncertainty">
+      <packagedElement xmi:type="uml:Stereotype" xmi:id="_33EQgBF5EfGyLqaRZ_jfrQ" name="Uncertainty">
+        <generalization xmi:id="_Uncertainty_general_MeasurableElement" general="_MeasurableElement"/>
+        <ownedAttribute xmi:id="_Uncertainty_kind" name="kind" visibility="public" type="_UncertaintyKind">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Uncertainty_kind_lower" value="0"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Uncertainty_kind_upper" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Uncertainty_nature" name="nature" visibility="public" type="_UncertaintyNature">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Uncertainty_nature_lower" value="0"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Uncertainty_nature_upper" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Uncertainty_reducibility" name="reducibility" visibility="public" type="_ReducibilityLevel">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Uncertainty_reducibility_lower" value="0"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Uncertainty_reducibility_upper" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Uncertainty_uncertaintyCharacteristic" name="uncertaintyCharacteristic" visibility="public" type="_UncertaintyCharacteristic" aggregation="composite">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Uncertainty_uncertaintyCharacteristic_lower" value="0"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Uncertainty_uncertaintyCharacteristic_upper" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Uncertainty_beliefStatement" name="beliefStatement" visibility="public" type="_xWF20BF5EfGyLqaRZ_jfrQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Uncertainty_beliefStatement_lower" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Uncertainty_beliefStatement_upper" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Uncertainty_uncertaintyTopic" name="uncertaintyTopic" visibility="public" type="_KBCGkBF6EfGyLqaRZ_jfrQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Uncertainty_uncertaintyTopic_lower" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Uncertainty_uncertaintyTopic_upper" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Uncertainty_sources" name="sources" visibility="public" type="_yZJPQBF5EfGyLqaRZ_jfrQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Uncertainty_sources_lower" value="0"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Uncertainty_sources_upper" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Uncertainty_indeterminacySpecifications" name="indeterminacySpecifications" visibility="public" type="_04HMEBF5EfGyLqaRZ_jfrQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Uncertainty_indeterminacySpecifications_lower" value="0"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Uncertainty_indeterminacySpecifications_upper" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_XQRSkBF7EfGyLqaRZ_jfrQ" name="base_AttributeDefinition" association="_XQO2UBF7EfGyLqaRZ_jfrQ">
+          <type xmi:type="uml:Class" href="SysML_only_xmi.uml#83320114-7a5d-44a4-955f-a569acff6af6"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XQRSkRF7EfGyLqaRZ_jfrQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Xzab4BF7EfGyLqaRZ_jfrQ" name="base_AttributeUsage" association="_XzYmsBF7EfGyLqaRZ_jfrQ">
+          <type xmi:type="uml:Class" href="SysML_only_xmi.uml#7b40d655-b90b-43af-aa30-8bc92e8edbca"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Xzab4RF7EfGyLqaRZ_jfrQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_YTMIIBF7EfGyLqaRZ_jfrQ" name="base_OccurrenceDefinition" association="_YTKS8BF7EfGyLqaRZ_jfrQ">
+          <type xmi:type="uml:Class" href="SysML_only_xmi.uml#1eff3723-2ccb-4d48-b4cf-7a53e76a2d83"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YTMIIRF7EfGyLqaRZ_jfrQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Y4qzwBF7EfGyLqaRZ_jfrQ" name="base_OccurrenceUsage" association="_Y4ploBF7EfGyLqaRZ_jfrQ">
+          <type xmi:type="uml:Class" href="SysML_only_xmi.uml#8750f181-cce3-4283-a48b-68d7977c6e0f"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Y4qzwRF7EfGyLqaRZ_jfrQ"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Stereotype" xmi:id="_KBCGkBF6EfGyLqaRZ_jfrQ" name="UncertaintyTopic">
+        <generalization xmi:id="_UncertaintyTopic_general_PSUMElement" general="_PSUMElement"/>
+        <ownedAttribute xmi:id="_UncertaintyTopic_beliefStatement" name="beliefStatement" visibility="public" type="_xWF20BF5EfGyLqaRZ_jfrQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UncertaintyTopic_beliefStatement_lower" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UncertaintyTopic_beliefStatement_upper" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_UncertaintyTopic_associatedUncertainty" name="associatedUncertainty" visibility="public" type="_33EQgBF5EfGyLqaRZ_jfrQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UncertaintyTopic_associatedUncertainty_lower" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UncertaintyTopic_associatedUncertainty_upper" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_UncertaintyTopic_base_Element" name="base_Element" association="_E_UncertaintyTopic_Element">
+          <type xmi:type="uml:Class" href="KerML_only_xmi.uml#4b78ff27-ee29-4275-961c-00731b7ed9bb"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UncertaintyTopic_base_Element_lower"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Stereotype" xmi:id="_UncertaintyPerspectiveStereo" name="UncertaintyPerspective">
+        <generalization xmi:id="_UncertaintyPerspective_general_UncertaintyCharacteristic" general="_UncertaintyCharacteristic"/>
+        <ownedAttribute xmi:id="_UncertaintyPerspective_perspectiveType" name="perspectiveType" visibility="public" type="_UncertaintyPerspectiveType">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UncertaintyPerspective_perspectiveType_lower" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UncertaintyPerspective_perspectiveType_upper" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_UncertaintyPerspective_base_Element" name="base_Element" association="_E_UncertaintyPerspective_Element">
+          <type xmi:type="uml:Class" href="KerML_only_xmi.uml#4b78ff27-ee29-4275-961c-00731b7ed9bb"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UncertaintyPerspective_base_Element_lower"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Stereotype" xmi:id="_PatternStereo" name="Pattern">
+        <generalization xmi:id="_Pattern_general_UncertaintyCharacteristic" general="_UncertaintyCharacteristic"/>
+        <ownedAttribute xmi:id="_Pattern_patternType" name="patternType" visibility="public" type="_PatternType">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pattern_patternType_lower" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pattern_patternType_upper" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Pattern_base_Element" name="base_Element" association="_E_Pattern_Element">
+          <type xmi:type="uml:Class" href="KerML_only_xmi.uml#4b78ff27-ee29-4275-961c-00731b7ed9bb"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pattern_base_Element_lower"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Stereotype" xmi:id="_L8nCcBF6EfGyLqaRZ_jfrQ" name="Effect">
+        <generalization xmi:id="_Effect_general_Uncertainty" general="_33EQgBF5EfGyLqaRZ_jfrQ"/>
+        <generalization xmi:id="_Effect_general_UncertaintyCharacteristic" general="_UncertaintyCharacteristic"/>
+        <ownedAttribute xmi:id="_Effect_origin" name="origin" visibility="public" type="_33EQgBF5EfGyLqaRZ_jfrQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Effect_origin_lower" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Effect_origin_upper" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_kzJowRF7EfGyLqaRZ_jfrQ" name="base_OccurrenceUsage" association="_kzHzkBF7EfGyLqaRZ_jfrQ">
+          <type xmi:type="uml:Class" href="SysML_only_xmi.uml#8750f181-cce3-4283-a48b-68d7977c6e0f"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kzJowhF7EfGyLqaRZ_jfrQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_lNLSURF7EfGyLqaRZ_jfrQ" name="base_OccurrenceDefinition" association="_lNKEMBF7EfGyLqaRZ_jfrQ">
+          <type xmi:type="uml:Class" href="SysML_only_xmi.uml#1eff3723-2ccb-4d48-b4cf-7a53e76a2d83"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lNLSUhF7EfGyLqaRZ_jfrQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_luOJ4BF7EfGyLqaRZ_jfrQ" name="base_AttributeUsage" association="_luMUsBF7EfGyLqaRZ_jfrQ">
+          <type xmi:type="uml:Class" href="SysML_only_xmi.uml#7b40d655-b90b-43af-aa30-8bc92e8edbca"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_luOJ4RF7EfGyLqaRZ_jfrQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mLAMgBF7EfGyLqaRZ_jfrQ" name="base_AttributeDefinition" association="_mK9wQBF7EfGyLqaRZ_jfrQ">
+          <type xmi:type="uml:Class" href="SysML_only_xmi.uml#83320114-7a5d-44a4-955f-a569acff6af6"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mLAMgRF7EfGyLqaRZ_jfrQ"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_XQO2UBF7EfGyLqaRZ_jfrQ" name="E_Uncertainty_AttributeDefinition5" memberEnd="_XQQrgBF7EfGyLqaRZ_jfrQ _XQRSkBF7EfGyLqaRZ_jfrQ">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_XQQrgBF7EfGyLqaRZ_jfrQ" name="extension_Uncertainty" type="_33EQgBF5EfGyLqaRZ_jfrQ" aggregation="composite" association="_XQO2UBF7EfGyLqaRZ_jfrQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_XzYmsBF7EfGyLqaRZ_jfrQ" name="E_Uncertainty_AttributeUsage6" memberEnd="_XzZ00BF7EfGyLqaRZ_jfrQ _Xzab4BF7EfGyLqaRZ_jfrQ">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_XzZ00BF7EfGyLqaRZ_jfrQ" name="extension_Uncertainty" type="_33EQgBF5EfGyLqaRZ_jfrQ" aggregation="composite" association="_XzYmsBF7EfGyLqaRZ_jfrQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_YTKS8BF7EfGyLqaRZ_jfrQ" name="E_Uncertainty_OccurrenceDefinition7" memberEnd="_YTLhEBF7EfGyLqaRZ_jfrQ _YTMIIBF7EfGyLqaRZ_jfrQ">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_YTLhEBF7EfGyLqaRZ_jfrQ" name="extension_Uncertainty" type="_33EQgBF5EfGyLqaRZ_jfrQ" aggregation="composite" association="_YTKS8BF7EfGyLqaRZ_jfrQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_Y4ploBF7EfGyLqaRZ_jfrQ" name="E_Uncertainty_OccurrenceUsage8" memberEnd="_Y4qMsBF7EfGyLqaRZ_jfrQ _Y4qzwBF7EfGyLqaRZ_jfrQ">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Y4qMsBF7EfGyLqaRZ_jfrQ" name="extension_Uncertainty" type="_33EQgBF5EfGyLqaRZ_jfrQ" aggregation="composite" association="_Y4ploBF7EfGyLqaRZ_jfrQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_E_UncertaintyTopic_Element" name="E_UncertaintyTopic_Element" memberEnd="_extension_UncertaintyTopic_Element _UncertaintyTopic_base_Element">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_extension_UncertaintyTopic_Element" name="extension_UncertaintyTopic" type="_KBCGkBF6EfGyLqaRZ_jfrQ" aggregation="composite" association="_E_UncertaintyTopic_Element"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_E_UncertaintyPerspective_Element" name="E_UncertaintyPerspective_Element" memberEnd="_extension_UncertaintyPerspective_Element _UncertaintyPerspective_base_Element">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_extension_UncertaintyPerspective_Element" name="extension_UncertaintyPerspective" type="_UncertaintyPerspectiveStereo" aggregation="composite" association="_E_UncertaintyPerspective_Element"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_E_Pattern_Element" name="E_Pattern_Element" memberEnd="_extension_Pattern_Element _Pattern_base_Element">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_extension_Pattern_Element" name="extension_Pattern" type="_PatternStereo" aggregation="composite" association="_E_Pattern_Element"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_kzHzkBF7EfGyLqaRZ_jfrQ" name="E_Effect_OccurrenceUsage13" memberEnd="_kzJowBF7EfGyLqaRZ_jfrQ _kzJowRF7EfGyLqaRZ_jfrQ">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_kzJowBF7EfGyLqaRZ_jfrQ" name="extension_Effect" type="_L8nCcBF6EfGyLqaRZ_jfrQ" aggregation="composite" association="_kzHzkBF7EfGyLqaRZ_jfrQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_lNKEMBF7EfGyLqaRZ_jfrQ" name="E_Effect_OccurrenceDefinition14" memberEnd="_lNLSUBF7EfGyLqaRZ_jfrQ _lNLSURF7EfGyLqaRZ_jfrQ">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_lNLSUBF7EfGyLqaRZ_jfrQ" name="extension_Effect" type="_L8nCcBF6EfGyLqaRZ_jfrQ" aggregation="composite" association="_lNKEMBF7EfGyLqaRZ_jfrQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_luMUsBF7EfGyLqaRZ_jfrQ" name="E_Effect_AttributeUsage15" memberEnd="_luNi0BF7EfGyLqaRZ_jfrQ _luOJ4BF7EfGyLqaRZ_jfrQ">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_luNi0BF7EfGyLqaRZ_jfrQ" name="extension_Effect" type="_L8nCcBF6EfGyLqaRZ_jfrQ" aggregation="composite" association="_luMUsBF7EfGyLqaRZ_jfrQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_mK9wQBF7EfGyLqaRZ_jfrQ" name="E_Effect_AttributeDefinition16" memberEnd="_mK_lcBF7EfGyLqaRZ_jfrQ _mLAMgBF7EfGyLqaRZ_jfrQ">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_mK_lcBF7EfGyLqaRZ_jfrQ" name="extension_Effect" type="_L8nCcBF6EfGyLqaRZ_jfrQ" aggregation="composite" association="_mK9wQBF7EfGyLqaRZ_jfrQ"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_HCG3UBF6EfGyLqaRZ_jfrQ" name="Measurement">
+      <packagedElement xmi:type="uml:Stereotype" xmi:id="_TPy8MBF6EfGyLqaRZ_jfrQ" name="Accuracy">
+        <generalization xmi:id="_Accuracy_general_MeasurableFeature" general="_MeasurableFeature"/>
+        <ownedAttribute xmi:id="_Accuracy_base_Element" name="base_Element" association="_E_Accuracy_Element">
+          <type xmi:type="uml:Class" href="KerML_only_xmi.uml#4b78ff27-ee29-4275-961c-00731b7ed9bb"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Accuracy_base_Element_lower"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Stereotype" xmi:id="_UPv9UBF6EfGyLqaRZ_jfrQ" name="Sensitivity">
+        <generalization xmi:id="_Sensitivity_general_MeasurableFeature" general="_MeasurableFeature"/>
+        <ownedAttribute xmi:id="_Sensitivity_base_Element" name="base_Element" association="_E_Sensitivity_Element">
+          <type xmi:type="uml:Class" href="KerML_only_xmi.uml#4b78ff27-ee29-4275-961c-00731b7ed9bb"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sensitivity_base_Element_lower"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Stereotype" xmi:id="_Vt6kcBF6EfGyLqaRZ_jfrQ" name="MeasurementError">
+        <generalization xmi:id="_MeasurementError_general_MeasurableFeature" general="_MeasurableFeature"/>
+        <ownedAttribute xmi:id="_MeasurementError_base_Element" name="base_Element" association="_E_MeasurementError_Element">
+          <type xmi:type="uml:Class" href="KerML_only_xmi.uml#4b78ff27-ee29-4275-961c-00731b7ed9bb"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MeasurementError_base_Element_lower"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Stereotype" xmi:id="_XD1OgBF6EfGyLqaRZ_jfrQ" name="Precision">
+        <generalization xmi:id="_Precision_general_MeasurableFeature" general="_MeasurableFeature"/>
+        <ownedAttribute xmi:id="_Precision_base_Element" name="base_Element" association="_E_Precision_Element">
+          <type xmi:type="uml:Class" href="KerML_only_xmi.uml#4b78ff27-ee29-4275-961c-00731b7ed9bb"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Precision_base_Element_lower"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Stereotype" xmi:id="_YvISsBF6EfGyLqaRZ_jfrQ" name="Degree">
+        <generalization xmi:id="_Degree_general_MeasurableFeature" general="_MeasurableFeature"/>
+        <ownedAttribute xmi:id="_Degree_base_Element" name="base_Element" association="_E_Degree_Element">
+          <type xmi:type="uml:Class" href="KerML_only_xmi.uml#4b78ff27-ee29-4275-961c-00731b7ed9bb"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Degree_base_Element_lower"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_E_Accuracy_Element" name="E_Accuracy_Element" memberEnd="_extension_Accuracy_Element _Accuracy_base_Element">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_extension_Accuracy_Element" name="extension_Accuracy" type="_TPy8MBF6EfGyLqaRZ_jfrQ" aggregation="composite" association="_E_Accuracy_Element"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_E_Sensitivity_Element" name="E_Sensitivity_Element" memberEnd="_extension_Sensitivity_Element _Sensitivity_base_Element">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_extension_Sensitivity_Element" name="extension_Sensitivity" type="_UPv9UBF6EfGyLqaRZ_jfrQ" aggregation="composite" association="_E_Sensitivity_Element"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_E_MeasurementError_Element" name="E_MeasurementError_Element" memberEnd="_extension_MeasurementError_Element _MeasurementError_base_Element">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_extension_MeasurementError_Element" name="extension_MeasurementError" type="_Vt6kcBF6EfGyLqaRZ_jfrQ" aggregation="composite" association="_E_MeasurementError_Element"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_E_Precision_Element" name="E_Precision_Element" memberEnd="_extension_Precision_Element _Precision_base_Element">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_extension_Precision_Element" name="extension_Precision" type="_XD1OgBF6EfGyLqaRZ_jfrQ" aggregation="composite" association="_E_Precision_Element"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Extension" xmi:id="_E_Degree_Element" name="E_Degree_Element" memberEnd="_extension_Degree_Element _Degree_base_Element">
+        <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_extension_Degree_Element" name="extension_Degree" type="_YvISsBF6EfGyLqaRZ_jfrQ" aggregation="composite" association="_E_Degree_Element"/>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+</uml:Profile>

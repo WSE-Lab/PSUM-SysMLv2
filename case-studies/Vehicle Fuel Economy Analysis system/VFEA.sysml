@@ -58,6 +58,7 @@ package 'Vehicle Analysis Demo' {
 				// The assumed vehicle parameters constitute a content uncertainty, since precise constant values are used to represent physical quantities that vary continuously due to manufacturing tolerances, wear, and operating conditions.				// 1.5% of the assumed value
 				measurement {
 					m_measurementError = 1.5['%'];
+					«PersonalExperience» 'Expert judgement on wheel diameter tolerance';
 				}
 			}
 	        attribute driveTrainEfficiency : Real;

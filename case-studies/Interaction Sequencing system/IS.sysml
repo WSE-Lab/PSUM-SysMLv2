@@ -4,7 +4,7 @@ package ServerSequenceModel {
 
 	package SignalDefinitions {
 		private import ServerSequenceRealization_2::Configuration::*;
-	    «UncertaintyTopic» item def Subscribe {
+	    item def Subscribe {
 	    	attribute topic : String;
 	    	ref part subscriber;
 
@@ -13,7 +13,7 @@ package ServerSequenceModel {
 			«Uncertainty» ref ::> consumer_2.consumerBehavior.subscribe;
 	    }
 	    
-		«UncertaintyTopic» item def Publish {
+		item def Publish {
 			attribute topic : String;
 			ref publication;
 
@@ -22,7 +22,7 @@ package ServerSequenceModel {
 			«Uncertainty» ref ::> server_2.serverBehavior.failToDeliver;
 		}
 		
-		«UncertaintyTopic» item def Deliver {
+		item def Deliver {
 			ref publication;
 
 			«Uncertainty» ref ::> server_2.serverBehavior.delivering;
@@ -132,7 +132,7 @@ package ServerSequenceRealization_2 {
 				
 				state waitForSubscription;
 
-				«Uncertainty<ocr, epi, subj>, Effect» transition subscribing
+				«Uncertainty<ocr, epi, subj>» transition subscribing
 					first waitForSubscription
 					accept sub : Subscribe via subscriptionPort
 					then waitForPublication {
@@ -178,7 +178,7 @@ package ServerSequenceRealization_2 {
 					
 				state waitForPublication;
 				
-				«Uncertainty<ocr, epi, subj>, Effect» transition delivering
+				«Uncertainty<ocr, epi, subj>» transition delivering
 					first waitForPublication
 					accept pub : Publish via publicationPort
 					if pub.topic == subscribing.sub.topic
@@ -250,7 +250,7 @@ package ServerSequenceRealization_2 {
 						m_degree = "TODO";
 					}
 				}
-				then «Uncertainty<ocr, epi, subj>, Effect» action delivery accept Deliver via consumer_2 {
+				then «Uncertainty<ocr, epi, subj>» action delivery accept Deliver via consumer_2 {
 					u_reducibility = PartiallyReducible;
 					u_pattern = Random;
 

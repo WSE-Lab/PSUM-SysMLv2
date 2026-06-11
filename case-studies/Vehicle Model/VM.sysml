@@ -266,7 +266,7 @@ package SimpleVehicleModel{
                         state off;
                         state on;    
                         transition initial then off;
-                        «Uncertainty<ocr, epi, subj>, Effect» transition 'off-on'
+                        «Uncertainty<ocr, epi, subj>» transition 'off-on'
                             first off
                             accept StartSignal
                             then on {

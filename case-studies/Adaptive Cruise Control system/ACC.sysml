@@ -15,7 +15,7 @@ package ACC {
             // Specifying IndeterminacySources
             /**
             * The radars could be physically blocked or disabled, 
-            * with IndeterminayNature being Non-determinism
+            * with IndeterminacyNature being Non-determinism
             */
             «IndeterminacySource<nd>» part radar : Radar[*] {
                 «IndeterminacySpecification» constraint radarBlocked {
@@ -29,7 +29,7 @@ package ACC {
             /**
             * The information provided by lasers and the cameras could lack sufficient precision, granularity, or fidelity 
             * to fully and accurately represent the observed phenomenon, 
-            * with IndeterminayNature being InsufficientResolution
+            * with IndeterminacyNature being InsufficientResolution
             */
             «IndeterminacySource<isr>» part laser : Lidar[*];
 
@@ -166,7 +166,7 @@ package ACC {
                         // To make control decision based on the signal from perception layer
                         «BeliefStatement» do action 'decide' {
                             // Decision logic can be implemented here
-                            «Uncertainty<ocr, epi, subj>, Effect» action sendControlSignal send ControlSignal() via acc.acc_controller {
+                            «Uncertainty<ocr, epi, subj>» action sendControlSignal send ControlSignal() via acc.acc_controller {
                                 // Specifying reducibility of uncertainty
                                 u_reducibility = PartiallyReducible;
                                 // Specifying pattern of uncertainty
@@ -264,7 +264,7 @@ package ACC {
                     state error;
 
                     // The acc_controller and brake works normally
-                    «Uncertainty<ocr, epi, subj>, Effect» transition normalDeceleration
+                    «Uncertainty<ocr, epi, subj>» transition normalDeceleration
                         first maintainingSpeed
                         accept DecelerationSignal
                         do action brake
@@ -323,7 +323,7 @@ package ACC {
                         then maintainingSpeed;
 
                     // The acc_controller and engine in powertrain works normally
-                    «Uncertainty<ocr, epi, subj>, Effect» transition normalAcceleration
+                    «Uncertainty<ocr, epi, subj>» transition normalAcceleration
                         first maintainingSpeed
                         accept AccelerationSignal
                         do action throttle
@@ -394,18 +394,18 @@ package ACC {
 
     package SignalDefinition {
         private import BehavioralModel::ACCState::*;
-        «UncertaintyTopic» item def PerceptionSignal {
+        item def PerceptionSignal {
             «Uncertainty» ref ::> accOn.decisionLayerState.startDeciding;
             «Uncertainty» ref ::> accOn.decisionLayerState.failToStartDeciding;
         }
         item def ACCTurnOnSignal;
         item def ACCTurnOffSignal;
         item def ControlSignal;
-        «UncertaintyTopic» item def AccelerationSignal :> ControlSignal {
+        item def AccelerationSignal :> ControlSignal {
             «Uncertainty» ref ::> accOn.controlLayerState.normalAcceleration;
             «Uncertainty» ref ::> accOn.controlLayerState.abnormalAcceleration;
         }
-        «UncertaintyTopic» item def DecelerationSignal :> ControlSignal {
+        item def DecelerationSignal :> ControlSignal {
             «Uncertainty» ref ::> accOn.controlLayerState.normalDeceleration;
             «Uncertainty» ref ::> accOn.controlLayerState.abnormalDeceleration;
         }

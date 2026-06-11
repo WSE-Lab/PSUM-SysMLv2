@@ -249,20 +249,19 @@ package AHFNorway {
 	attribute def CallGiveItems{itms:String; } 
 	attribute def ResultGiveItems{ack:Boolean;}
 
-	// UncertaintyTopic declarations for grouping related uncertainties in AF
-	«UncertaintyTopic» item def PublishTopic {
+	item def PublishTopic {
 		«Uncertainty» ref ::> AHFNorway_LocalCloudDD.APISProducer.APISPbehavior.sendPublish;
 		«Uncertainty» ref ::> AHFNorway_LocalCloudDD.MQTTServer.Serve.acceptPublish;
 		«Uncertainty» ref ::> AHFNorway_LocalCloudDD.MQTTServer.Serve.failToAcceptPublish;
 	}
 
-	«UncertaintyTopic» item def SubscribeTopic {
-		«Uncertainty» ref ::> AHFNorway_LocalCloudDD.APISConsumer.MQTT_APISP.sendSubsribe;
-		«Uncertainty» ref ::> AHFNorway_LocalCloudDD.MQTTServer.Serve.acceptSubsribe;
-		«Uncertainty» ref ::> AHFNorway_LocalCloudDD.MQTTServer.Serve.failToAcceptSubsribe;
+	item def SubscribeTopic {
+		«Uncertainty» ref ::> AHFNorway_LocalCloudDD.APISConsumer.MQTT_APISP.sendSubscribe;
+		«Uncertainty» ref ::> AHFNorway_LocalCloudDD.MQTTServer.Serve.acceptSubscribe;
+		«Uncertainty» ref ::> AHFNorway_LocalCloudDD.MQTTServer.Serve.failToAcceptSubscribe;
 	}
 
-	«UncertaintyTopic» item def RemoteCallTopic {
+	item def RemoteCallTopic {
 		«Uncertainty» ref ::> AHFNorway_LocalCloudDD.TellUConsumer.TellUbehavior.sendCallGiveItems;
 		«Uncertainty» ref ::> AHFNorway_LocalCloudDD.APISProducer.APISPbehavior.acceptCallGiveItems;
 		«Uncertainty» ref ::> AHFNorway_LocalCloudDD.APISProducer.APISPbehavior.failToAcceptCallGiveItems;
@@ -302,7 +301,7 @@ package AHFNorway {
 				//then Wait;
 
 				// The declared name of the transition has been added for reference
-				«Uncertainty<ocr, epi, subj>, Effect» transition acceptResultGiveItems
+				«Uncertainty<ocr, epi, subj>» transition acceptResultGiveItems
 					first Wait
 					accept rs:ResultGiveItems
 					// Here do whatever about the result rs.ret 
@@ -323,7 +322,7 @@ package AHFNorway {
 						}
 					}
 
-				«Uncertainty<ocr, epi, subj>, Effect» transition failToAcceptResultGiveItems
+				«Uncertainty<ocr, epi, subj>» transition failToAcceptResultGiveItems
 					first Wait
 					accept rs:ResultGiveItems
 					// No action performed with failed reception of ResultGiveItems
@@ -412,7 +411,7 @@ package AHFNorway {
 
 				// The declared name of the transition has been added for reference
 
-				«Uncertainty<ocr, epi, subj>, Effect» transition acceptCallGiveItems
+				«Uncertainty<ocr, epi, subj>» transition acceptCallGiveItems
 					first WaitOnData
 					accept cl:CallGiveItems via tellu.APIS_HTTP
 					do action {
@@ -479,13 +478,13 @@ package AHFNorway {
 			
 			// Now sending signal to the remote behavior through the port functionality
 			«BeliefStatement» state MQTT_APISP {
-				entry «Uncertainty<ocr, epi, subj>» action sendSubsribe send Subscribe("Return_AllItems") via apisp.APIS_MQTT {
+				entry «Uncertainty<ocr, epi, subj>» action sendSubscribe send Subscribe("Return_AllItems") via apisp.APIS_MQTT {
 					u_reducibility = PartiallyReducible;
 					u_pattern = Random;
 
 					«IndeterminacySpecification» ref ::> apisp.APIS_MQTT.APIS_MQTT_Operational;
 
-					«Effect» ref ::> MQTTServer.Serve.acceptSubsribe;
+					«Effect» ref ::> MQTTServer.Serve.acceptSubscribe;
 
 					// To measure the probability of the uncertainty
 					measurement {
@@ -499,7 +498,7 @@ package AHFNorway {
 					// then Idle;
 
 				// The declared name of the transition has been added for reference
-				«Uncertainty<ocr, epi, subj>, Effect» transition acceptReturn_AllItems
+				«Uncertainty<ocr, epi, subj>» transition acceptReturn_AllItems
 					first Idle
 					accept Return_AllItems via apisp.APIS_MQTT
 					// Get the stuff and do something with them
@@ -536,7 +535,7 @@ package AHFNorway {
  				// then Subsr;
 
 				// The declared name of the transition has been added for reference
-				«Uncertainty<ocr, epi, subj>, Effect» transition acceptPublish
+				«Uncertainty<ocr, epi, subj>» transition acceptPublish
 					first Publ
 					accept pub:Publish via getTopic.APIS_MQTT
  					// store information about who will provide "Publish::nametopic"
@@ -587,7 +586,7 @@ package AHFNorway {
  				// then Idle;
 
 				// The declared name of the transition has been added for reference
-				«Uncertainty<ocr, epi, subj>, Effect» transition acceptSubsribe
+				«Uncertainty<ocr, epi, subj>» transition acceptSubscribe
 					first Subsr
 					accept Subscribe via giveTopic.APIS_MQTT
  					// store information about who want to receive "Subscribe::nametopic"
@@ -608,7 +607,7 @@ package AHFNorway {
 
 					}
 
-				«Uncertainty<ocr, epi, subj>» transition failToAcceptSubsribe
+				«Uncertainty<ocr, epi, subj>» transition failToAcceptSubscribe
 					first Subsr
 					accept Subscribe via giveTopic.APIS_MQTT
 					then Subsr {
@@ -640,7 +639,7 @@ package AHFNorway {
  				// then Idle;
 
 				// The declared name of the transition has been added for reference
-				«Uncertainty<ocr, epi, subj>, Effect» transition acceptReturn_AllItems
+				«Uncertainty<ocr, epi, subj>» transition acceptReturn_AllItems
 					first Idle
 					accept retrnall:Return_AllItems via getTopic.APIS_MQTT
  					do send retrnall via giveTopic.APIS_MQTT
